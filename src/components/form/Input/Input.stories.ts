@@ -17,6 +17,9 @@ const meta = {
     children: {
       control: 'text',
     },
+    error: {
+      control: 'boolean',
+    },
   },
 } satisfies Meta<typeof Input>;
 
@@ -33,6 +36,14 @@ export const Common: Story = {
 export const Additional: Story = {
   args: {
     placeholder: 'Placeholder',
+    children: 'USD',
+  },
+};
+
+export const Error: Story = {
+  args: {
+    placeholder: 'Placeholder',
+    error: true,
     children: 'USD',
   },
 };

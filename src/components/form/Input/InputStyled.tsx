@@ -1,24 +1,34 @@
 import styled from '@emotion/styled';
-import { $inputBgColor, $inputTextColor, $mainFont } from '../../../styled/variables';
+import {
+  $dangerColor,
+  $inputBgColor,
+  $inputBorderColor,
+  $inputTextColor,
+  $mainFont,
+} from '../../../styled/variables';
 
-const Wrap = styled.div`
+const Wrap = styled.div<{ $error?: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   width: 100%;
+  border-color: ${({ $error }) => ($error ? $dangerColor : $inputBorderColor)};
+  color: ${({ $error }) => ($error ? $dangerColor : $inputTextColor)};
+  background: ${$inputBgColor};
 
   //custom styles
   border-radius: 0.75rem;
-  border: 0.0625rem solid rgba(25, 25, 28, 0.08);
-  background: ${$inputBgColor};
+  border-width: 0.0625rem;
+  border-style: solid;
 `;
 
-const Field = styled.input<{ $focused: boolean; $isChildren: boolean }>`
+const Field = styled.input<{ $focused: boolean; $isChildren: boolean; $error: boolean }>`
   font-family: ${$mainFont}, sans-serif;
   width: 100%;
   height: 3rem;
-  color: ${$inputTextColor};
+  color: ${({ $error }) => ($error ? $dangerColor : $inputTextColor)};
+
   border: none !important;
   outline: none !important;
   background-color: transparent;
@@ -34,7 +44,7 @@ const Field = styled.input<{ $focused: boolean; $isChildren: boolean }>`
   &:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px ${$inputBgColor} inset !important;
     border-radius: 0.75rem !important;
-    color: ${$inputTextColor} !important;
+    color: ${({ $error }) => ($error ? $dangerColor : $inputTextColor)} !important;
     -webkit-text-fill-color: ${$inputTextColor} !important;
   }
   &::placeholder {
@@ -42,11 +52,11 @@ const Field = styled.input<{ $focused: boolean; $isChildren: boolean }>`
   }
 `;
 
-const Placeholder = styled.label<{ $focused: boolean }>`
+const Placeholder = styled.label<{ $focused: boolean; $error: boolean }>`
   pointer-events: none;
   position: absolute;
   left: 1rem;
-  color: ${$inputTextColor};
+  color: ${({ $error }) => ($error ? $dangerColor : $inputTextColor)} !important;
   top: ${({ $focused }) => ($focused ? '15%' : '50%')};
   transform: ${({ $focused }) => ($focused ? 'translateY(0)' : 'translateY(-50%)')};
   font-size: ${({ $focused }) => ($focused ? '0.75rem' : '1rem')};
