@@ -32,7 +32,7 @@ type ButtonProps = {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+export const Button: React.FC<ButtonProps> = ({
   color = $mainFontColor,
   backgroundColor = $primaryColor,
   styleType = 'fill',
@@ -40,7 +40,7 @@ export const Button = ({
   state = 'normal',
   children,
   ...props
-}: ButtonProps) => {
+}) => {
   return (
     <ButtonStyled.Wrap
       $color={color}
