@@ -14,3 +14,7 @@ export const $primaryColor = '#6464D5';
 export const $darkColor = '#05141A';
 export const $dangerColor = '#FF5B5B';
 export const $successColor = '#55D36A';
+
+export const $inputBgColor = '#F6F6F6';
+export const $inputBorderColor = '#E0E0E0';
+export const $inputTextColor = $darkColor;
