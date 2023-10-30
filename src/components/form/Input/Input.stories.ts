@@ -30,6 +30,8 @@ type Story = StoryObj<typeof meta>;
 export const Common: Story = {
   args: {
     placeholder: 'Placeholder',
+    children: '',
+    error: false,
   },
 };
 
