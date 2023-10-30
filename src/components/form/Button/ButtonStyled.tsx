@@ -110,6 +110,6 @@ const Wrap = styled.button<ButtonProps>`
   }}
 `;
 
-export const ButtonStyled = {
+export const Styled = {
   Wrap,
 };

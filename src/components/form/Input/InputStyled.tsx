@@ -64,7 +64,7 @@ const Placeholder = styled.label<{ $focused: boolean; $error: boolean }>`
   transition: opacity 0.3s, top 0.3s, font-size 0.3s, transform 0.3s;
 `;
 
-export const InputStyled = {
+export const Styled = {
   Wrap,
   Field,
   Placeholder,

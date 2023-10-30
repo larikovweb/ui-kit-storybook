@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { InputStyled } from './InputStyled';
+import { Styled } from './InputStyled';
 
 type InputProps = {
   /**
@@ -33,8 +33,8 @@ export const Input: React.FC<InputProps> = ({ children, placeholder, error = fal
   };
 
   return (
-    <InputStyled.Wrap $error={Boolean(error)}>
-      <InputStyled.Field
+    <Styled.Wrap $error={Boolean(error)}>
+      <Styled.Field
         $focused={isFocused || inputValue.length > 0}
         $error={Boolean(error)}
         $isChildren={Boolean(children)}
@@ -45,12 +45,10 @@ export const Input: React.FC<InputProps> = ({ children, placeholder, error = fal
         value={inputValue}
         {...props}
       />
-      <InputStyled.Placeholder
-        $error={Boolean(error)}
-        $focused={isFocused || inputValue.length > 0}>
+      <Styled.Placeholder $error={Boolean(error)} $focused={isFocused || inputValue.length > 0}>
         {placeholder}
-      </InputStyled.Placeholder>
+      </Styled.Placeholder>
       {children}
-    </InputStyled.Wrap>
+    </Styled.Wrap>
   );
 };

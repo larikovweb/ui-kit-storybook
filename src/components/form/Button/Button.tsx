@@ -1,6 +1,6 @@
 import { IconLoader } from '../../../icons';
 import { $mainFontColor, $primaryColor } from '../../../styled/variables';
-import { ButtonStyled } from './ButtonStyled';
+import { Styled } from './ButtonStyled';
 
 type ButtonProps = {
   /**
@@ -42,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <ButtonStyled.Wrap
+    <Styled.Wrap
       $color={color}
       $backgroundColor={backgroundColor}
       $styleType={styleType}
@@ -52,6 +52,6 @@ export const Button: React.FC<ButtonProps> = ({
       {...props}>
       <span>{children}</span>
       {state === 'pending' && <IconLoader />}
-    </ButtonStyled.Wrap>
+    </Styled.Wrap>
   );
 };
