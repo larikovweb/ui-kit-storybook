@@ -9,6 +9,9 @@ const meta: Meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    children: { control: 'none' },
+  },
 };
 
 export default meta;
